@@ -1,0 +1,290 @@
+/* Final motion and interaction polish */
+.motion-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s var(--ease),
+    transform 0.7s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.motion-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.button,
+.reservation-primary,
+.ad-primary {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.button:after,
+.reservation-primary:after,
+.ad-primary:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  left: 50%;
+  top: 140%;
+  background: rgba(255, 255, 255, 0.16);
+  transform: translate(-50%, -50%) scale(0);
+  transition:
+    transform 0.5s var(--ease),
+    top 0.5s var(--ease);
+}
+.button:hover:after,
+.reservation-primary:hover:after,
+.ad-primary:hover:after {
+  top: 50%;
+  transform: translate(-50%, -50%) scale(2.4);
+}
+.hero-image img {
+  animation: heroBreath 12s ease-in-out infinite alternate;
+}
+.hero-note {
+  animation: gentleFloat 5s ease-in-out infinite;
+}
+.hero-promo-card {
+  animation:
+    reveal 0.9s 0.5s both var(--ease),
+    promoFloat 6s 1.5s ease-in-out infinite;
+}
+.hero-orb {
+  animation: orbDrift 10s ease-in-out infinite alternate;
+}
+@keyframes heroBreath {
+  to {
+    transform: scale(1.035);
+  }
+}
+@keyframes gentleFloat {
+  50% {
+    transform: translateY(-7px);
+    box-shadow: 0 22px 52px rgba(16, 36, 58, 0.16);
+  }
+}
+@keyframes promoFloat {
+  50% {
+    transform: translateY(6px);
+  }
+}
+@keyframes orbDrift {
+  to {
+    transform: translate(45px, -25px) scale(1.08);
+  }
+}
+.service-card:after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: -100% -40%;
+  background: linear-gradient(
+    110deg,
+    transparent 42%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 58%
+  );
+  transform: translateX(-55%) rotate(8deg);
+  transition: transform 0.85s var(--ease);
+  pointer-events: none;
+}
+.service-card:hover:after {
+  transform: translateX(55%) rotate(8deg);
+}
+.service-card {
+  transition:
+    transform 0.45s var(--ease),
+    box-shadow 0.45s var(--ease);
+}
+.service-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 22px 50px rgba(16, 36, 58, 0.16);
+}
+.clinic-main,
+.clinic-detail,
+.journey-image img,
+.campaign-photo img {
+  transition:
+    transform 0.8s var(--ease),
+    filter 0.8s var(--ease);
+}
+.editorial-images:hover .clinic-main,
+.journey-image:hover img,
+.campaign-photo:hover img {
+  transform: scale(1.018);
+  filter: saturate(1.04);
+}
+.editorial-images:hover .clinic-detail {
+  transform: translate(-7px, -7px) rotate(-1deg);
+}
+.trust-item {
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+.trust-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+.step {
+  transition:
+    padding-left 0.3s var(--ease),
+    background 0.3s;
+}
+.step:hover {
+  padding-left: 12px;
+  background: linear-gradient(90deg, rgba(99, 184, 178, 0.07), transparent);
+}
+.faq {
+  transition:
+    padding 0.3s var(--ease),
+    background 0.3s;
+}
+.faq:hover {
+  padding-inline: 10px;
+  background: #f8fbfc;
+}
+.compare-line i {
+  animation: compareHint 2.8s ease-in-out infinite;
+}
+@keyframes compareHint {
+  45%,
+  55% {
+    transform: translateX(4px);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+}
+.campaign-glow {
+  animation: campaignOrbit 12s ease-in-out infinite alternate;
+}
+@keyframes campaignOrbit {
+  to {
+    transform: translate(-55px, 45px) rotate(12deg);
+  }
+}
+.nav-wrap.is-scrolled {
+  animation: navSettle 0.35s both var(--ease);
+}
+@keyframes navSettle {
+  from {
+    transform: translateY(-8px);
+    opacity: 0.7;
+  }
+}
+.metric-card,
+.dashboard-card,
+.service-admin-grid article,
+.team-grid article {
+  transition:
+    transform 0.25s var(--ease),
+    box-shadow 0.25s var(--ease),
+    border-color 0.25s;
+}
+.metric-card:hover,
+.dashboard-card:hover,
+.service-admin-grid article:hover,
+.team-grid article:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 13px 28px rgba(20, 39, 64, 0.075);
+  border-color: #d5e0eb;
+}
+.appointment-row:not(.table-header) {
+  transition:
+    background 0.18s,
+    transform 0.18s var(--ease),
+    box-shadow 0.18s;
+}
+.appointment-row:not(.table-header):hover {
+  position: relative;
+  z-index: 1;
+  transform: translateX(3px);
+  box-shadow: inset 3px 0 #3568d4;
+}
+.nav-group button i {
+  transition: transform 0.25s var(--ease);
+}
+.nav-group button:hover i {
+  transform: scale(1.12) rotate(-3deg);
+}
+.nav-group button.active i {
+  animation: activeIcon 0.35s both var(--ease);
+}
+@keyframes activeIcon {
+  from {
+    transform: scale(0.65);
+    opacity: 0.3;
+  }
+}
+.admin-content > * {
+  animation: adminPageIn 0.45s both var(--ease);
+}
+@keyframes adminPageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+.cal-event {
+  transition:
+    transform 0.18s var(--ease),
+    box-shadow 0.18s;
+}
+.cal-event:hover {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow: 0 5px 12px rgba(20, 39, 64, 0.1);
+}
+.ad-status i {
+  animation: statusPulse 2.5s ease-in-out infinite;
+}
+@keyframes statusPulse {
+  50% {
+    box-shadow: 0 0 0 4px currentColor;
+    opacity: 0.65;
+  }
+}
+.dec-days button:not(:disabled),
+.reservation-times button {
+  transition:
+    transform 0.18s var(--ease),
+    background 0.18s,
+    box-shadow 0.18s;
+}
+.dec-days button:not(:disabled):hover,
+.reservation-times button:hover {
+  transform: translateY(-2px);
+}
+.success-reference {
+  animation: successCard 0.6s 0.2s both var(--ease);
+}
+@keyframes successCard {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .hero-image img,
+  .hero-note,
+  .hero-promo-card,
+  .hero-orb,
+  .compare-line i,
+  .campaign-glow,
+  .ad-status i {
+    animation: none !important;
+  }
+  .service-card:hover,
+  .metric-card:hover,
+  .dashboard-card:hover,
+  .appointment-row:not(.table-header):hover {
+    transform: none;
+  }
+}

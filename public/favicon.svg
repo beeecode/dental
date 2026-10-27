@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Same shape and colours as the .brand-mark logo used across the site -->
+  <path d="M16 0a16 16 0 0 1 16 16a16 16 0 0 1-16 16H6.5A6.5 6.5 0 0 1 0 25.5V16A16 16 0 0 1 16 0Z" fill="#10243a"/>
+  <path d="M12 8.5h2.6v12.4H21v2.6h-9Z" fill="#fff"/>
+</svg>

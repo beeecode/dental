@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@300;400;500;600&display=swap");
+/* Tailwind supplies the base reset (Preflight) only; no utility classes are used, so
+   source(none) stops it scanning project files and emitting stray utilities. */
+@import "tailwindcss" source(none);
+
+/* Partials are imported in cascade order — later files override earlier ones. */
+@import "./site.css";
+@import "./admin.css";
+@import "./reservation.css";
+@import "./motion.css";
